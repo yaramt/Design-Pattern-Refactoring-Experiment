@@ -1,0 +1,28 @@
+﻿Prompt ID,Prompt,ChatGPT Explanation,Users Explanations should be something in this Context:
+X5T9Z7,Step 1: Create Product Model Class,"Define a class to encapsulate the properties and behavior of a product. Inside the class, declare fields to represent product attributes (such as name and price) and methods to access and manipulate these attributes.","Objective: Define the data structure and behavior of a product.
+Actions:
+Create a new class named ProductModel.
+Define attributes such as name and price.
+Implement methods to access these attributes."
+M2R8P6,Step 2: Create Product View Class,Define a class responsible for displaying product information.,"Objective: Handle the visualization of product-related information.
+Actions:
+Create a new class named ProductView.
+Implement a method to display product details."
+K9L3Q2,Step 3: Create Product Controller Class,"Define a class that instantiates ProductModel and ProductView. Additionally, include a method responsible for displaying product details.","Objective: Handle user interactions and business logic related to products.
+Actions:
+Create a new class named ProductController.
+Initialize instances of ProductModel and ProductView in the constructor.
+Implement a method to display product details."
+H4G6N8,Step 4: Refactor ShoppingCartModel to Interact with Product MVC Layer,Modify ShoppingCartModel to use ProductModel instead of strings for items in cart.,"Objective: Modify ShoppingCartModel to interact with ProductModel instead of strings.
+Actions:
+Modify ShoppingCartModel to use ProductModel instead of strings for items."
+Y1F7W3,Step 5: Refactor ShoppingCartView to Interact with Product MVC Layer,Modify ShoppingCartView to call ProductView to display product details.,"Objective: Modify ShoppingCartView to interact with ProductView for displaying product details.
+Actions:
+Modify ShoppingCartView to call ProductView to display product details."
+B8D2K6,Step 6: Refactor ShoppingCartController to Interact with Product MVC Layer,Modify ShoppingCartController to use ProductModel instead of strings for items.,"Actions:
+Modify ShoppingCartController to use ProductModel instead of strings for items."
+T3J5R9,Step 7: Refactor Main Class to Use Product MVC Layer,"Create instances of ProductModel, ProductView, and ProductController in the Main class.
+Use these instances to add products to the shopping cart and display the cart's contents.","Objective: Modify the Main class to create instances of ProductModel, ProductView, and ProductController, and use them in conjunction with the existing ShoppingCart MVC layer.
+Actions:
+Create instances of ProductModel, ProductView, and ProductController in the Main class.
+Use these instances to add products to the shopping cart and display the cart's contents."
