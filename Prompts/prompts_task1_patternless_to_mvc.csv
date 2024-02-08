@@ -1,0 +1,10 @@
+﻿Prompt,ChatGPT Explanation
+Step 1: Create Shopping Cart Model Class,"Create a new Java class named ShoppingCartModel.
+Move the items list and its related methods (addItem and getItems) from the ShoppingCart class to the ShoppingCartModel class."
+Step 2: Create Shopping Cart View Class,"Create a new Java class named ShoppingCartView.
+Move the showItems method from the ShoppingCart class to the ShoppingCartView class."
+Step 3: Create Shopping Cart Controller Class,"Create a new class named ShoppingCartController.
+Initialize instances of ShoppingCartModel and ShoppingCartView in the constructor of ShoppingCartController.
+Implement a method in ShoppingCartController to manage the user input and coordinate interactions between the model and view."
+Step 4: Refactor Main Class to Use Shopping Cart MVC Layer,"Create instances of ShoppingCartModel, ShoppingCartView, and ShoppingCartController in the main method.
+Call methods in ShoppingCartController to perform shopping related tasks."

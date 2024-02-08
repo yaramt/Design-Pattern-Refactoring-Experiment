@@ -1,0 +1,20 @@
+﻿Prompt,ChatGPT Explanation,
+Step 1: Create Book Model Class,"Create a new class named BookModel.
+Move the books list and its related methods (addBook and getBooks) from the BookManager class to the BookModel class.",
+Step 2: Create Book View Class,"Create a new class named BookView.
+Move the displayBooks method from the BookManager class to the BookView class.",
+Step 3: Create Book Controller Class,"Create a new class named BookController.
+Initialize instances of BookModel and BookView in the constructor of BookController.
+Implement a method in BookController to manage the user input and coordinate interactions between the model and view.",
+Step 4: Refactor Main Class to Use Product MVC Layer,"Create instances of BookModel, BookView, and BookController in the main method of BookMain.
+Call methods in BookController to perform book management tasks.",
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,c,
