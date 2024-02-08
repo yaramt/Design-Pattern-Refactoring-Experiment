@@ -102,6 +102,7 @@ subgraph cluster_1528280640 {
 <TR><TD ALIGN="LEFT" >#   items: List&lt;String&gt; [0..*]</TD></TR>
 <HR/>
 <TR><TD ALIGN="LEFT" >+ addItem(product: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ main(args: String[])</TD></TR>
 <TR><TD ALIGN="LEFT" >+ showItems()</TD></TR>
 </TABLE>>
 	style=filled
