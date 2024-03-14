@@ -1,4 +1,5 @@
 @startuml
+
 /' diagram meta data start
 config=StructureConfiguration;
 {
@@ -69,7 +70,7 @@ config=StructureConfiguration;
     "showPackageLevels": 2,
     "showDetailedClassStructure": true
   },
-  "rootClass": "org.ecommerce.patternless.ShoppingCart",
+  "rootClass": "org.ecommerce.mvc.controller.ShoppingCartController",
   "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
 }
 diagram meta data end '/
@@ -82,27 +83,63 @@ digraph g {
     subgraph cluster_1528280640 {
         label=ecommerce
         labeljust=l
-        fillcolor="#FFCC66"
+        fillcolor="#FFA07A"
         style=filled
-        node [style=filled, fillcolor="#FFD699", shape=box]
+        node [style=filled, fillcolor="#F08080", shape=box]
 
-        subgraph cluster_913265275 {
-            label=patternless
+        subgraph cluster_1497300 {
+            label=mvc
             labeljust=l
-            fillcolor="#66CCCC"
+            fillcolor="#87CEEB"
             style=filled
-            node [style=filled, fillcolor="#99CCFF"]
+            node [style=filled, fillcolor="#87CEFA"]
 
-            ShoppingCart972126479[
+            Product698823074[
                 label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
-                <TR><TD ALIGN="LEFT" >(C)ShoppingCart</TD></TR>
+                <TR><TD ALIGN="LEFT" >(C)Product</TD></TR>
                 <HR/>
-                <TR><TD ALIGN="LEFT" >#   products: List&lt;String&gt; [0..*]</TD></TR>
+                <TR><TD ALIGN="LEFT" >-   id: int [1]</TD></TR>
+                <TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+                <TR><TD ALIGN="LEFT" >-   price: double [1]</TD></TR>
                 <HR/>
-                <TR><TD ALIGN="LEFT" >+ addItem(product: String)</TD></TR>
-                <TR><TD ALIGN="LEFT" >+ main(args: String[])</TD></TR>
-                <TR><TD ALIGN="LEFT" >+ removeItem(product: String)</TD></TR>
-                <TR><TD ALIGN="LEFT" >+ showItems()</TD></TR>
+                <TR><TD ALIGN="LEFT" >+ setId(id: int): int</TD></TR>
+                <TR><TD ALIGN="LEFT" >+ setName(name: String): String</TD></TR>
+                <TR><TD ALIGN="LEFT" >+ setPrice(price: double): double</TD></TR>
+                </TABLE>>
+                shape=plaintext
+            ];
+
+            ShoppingCartController568240280[
+                label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+                <TR><TD ALIGN="LEFT" >(C)ShoppingCartController</TD></TR>
+                <HR/>
+                <TR><TD ALIGN="LEFT" >-   cartModel: ShoppingCartModel [0..1]</TD></TR>
+                <TR><TD ALIGN="LEFT" >-   cartView: ShoppingCartView [0..1]</TD></TR>
+                <HR/>
+                <TR><TD ALIGN="LEFT" >+ addProductToCartModel(product: Product)</TD></TR>
+                <TR><TD ALIGN="LEFT" >+ removeProductFromCartModel(product: Product)</TD></TR>
+                <TR><TD ALIGN="LEFT" >+ updateView()</TD></TR>
+                </TABLE>>
+                shape=plaintext
+            ];
+
+            ShoppingCartModel266151971[
+                label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+                <TR><TD ALIGN="LEFT" >(C)ShoppingCartModel</TD></TR>
+                <HR/>
+                <TR><TD ALIGN="LEFT" >-   products: List&lt;Product&gt; [0..*]</TD></TR>
+                <HR/>
+                <TR><TD ALIGN="LEFT" >+ addProduct(product: Product)</TD></TR>
+                <TR><TD ALIGN="LEFT" >+ removeProduct(product: Product)</TD></TR>
+                </TABLE>>
+                shape=plaintext
+            ];
+
+            ShoppingCartView2069886833[
+                label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+                <TR><TD ALIGN="LEFT" >(C)ShoppingCartView</TD></TR>
+                <HR/>
+                <TR><TD ALIGN="LEFT" >+ showProducts(products: List&lt;Product&gt;)</TD></TR>
                 </TABLE>>
                 shape=plaintext
             ];
@@ -110,6 +147,8 @@ digraph g {
     }
 
     // Edges
-
+    ShoppingCartController568240280 -> ShoppingCartModel266151971[label="cartModel [0..1]"];
+    ShoppingCartController568240280 -> ShoppingCartView2069886833[label="cartView [0..1]"];
+    ShoppingCartModel266151971 -> Product698823074[label="products [0..*]"];
 }
 @enduml

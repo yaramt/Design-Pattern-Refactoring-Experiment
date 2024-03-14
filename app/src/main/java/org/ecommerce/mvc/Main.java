@@ -6,17 +6,17 @@ import org.ecommerce.mvc.view.ShoppingCartView;
 
 public class Main {
     public static void main(String[] args) {
-        String laptop = "Laptop - $999.99";
-        String headphones = "Headphones - $49.99";
+        Product product1 = new Product(1, "Laptop", 999.99);
+        Product product2 = new Product(2, "Smartphone", 499.99);
 
         ShoppingCartModel cartModel = new ShoppingCartModel();
         ShoppingCartView cartView = new ShoppingCartView();
         ShoppingCartController cartController = new ShoppingCartController(cartModel, cartView);
 
-        cartController.addItem(laptop);
-        cartController.addItem(headphones);
+        cartController.addProductToCartModel(product1);
+        cartController.addProductToCartModel(product2);
 
-        cartController.showItems();
+        cartController.updateView();
     }
 }
 

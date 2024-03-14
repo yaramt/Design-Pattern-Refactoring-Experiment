@@ -1,26 +1,28 @@
 package org.ecommerce.mvc.controller;
 
+import org.ecommerce.mvc.Product;
 import org.ecommerce.mvc.model.ShoppingCartModel;
 import org.ecommerce.mvc.view.ShoppingCartView;
 
-import java.util.List;
-
 public class ShoppingCartController {
-    private ShoppingCartModel model;
-    private ShoppingCartView view;
+    private ShoppingCartModel cartModel;
+    private ShoppingCartView cartView;
 
-    public ShoppingCartController(ShoppingCartModel model, ShoppingCartView view) {
-        this.model = model;
-        this.view = view;
+    public ShoppingCartController(ShoppingCartModel cartModel, ShoppingCartView cartView) {
+        this.cartModel = cartModel;
+        this.cartView = cartView;
     }
 
-    public void addItem(String product) {
-        model.addItem(product);
+    public void addProductToCartModel(Product product) {
+        cartModel.addProduct(product);
     }
 
-    public void showItems() {
-        List<String> items = model.getItems();
-        view.showItems(items);
+    public void removeProductFromCartModel(Product product) {
+        cartModel.removeProduct(product);
+    }
+
+    public void updateView() {
+        cartView.showProducts(cartModel.getProducts());
     }
 }
 

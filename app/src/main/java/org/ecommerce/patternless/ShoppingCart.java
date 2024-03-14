@@ -6,17 +6,17 @@ import java.util.List;
 public class ShoppingCart {
     List<String> products = new ArrayList<>();
 
-    public void addItem(String product) {
+    public void addProduct(String product) {
         products.add(product);
     }
 
-    public void showItems() {
+    public void showProducts() {
         for (String product : products) {
             System.out.println(product);
         }
     }
 
-    public void removeItem(String product) {
+    public void removeProduct(String product) {
          products.remove(product);
     }
 
@@ -28,9 +28,9 @@ public class ShoppingCart {
         String laptop = "Laptop - $999.99";
         String headphones = "Headphones - $49.99";
         ShoppingCart cart = new ShoppingCart();
-        cart.addItem(laptop);
-        cart.addItem(headphones);
-        cart.showItems();
+        cart.addProduct(laptop);
+        cart.addProduct(headphones);
+        cart.showProducts();
     }
 }
 

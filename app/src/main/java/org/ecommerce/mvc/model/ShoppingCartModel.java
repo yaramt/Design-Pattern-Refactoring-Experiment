@@ -1,18 +1,29 @@
 package org.ecommerce.mvc.model;
 
+import org.ecommerce.mvc.Product;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ShoppingCartModel {
-    private List<String> items = new ArrayList<>();
+    private List<Product> products;
 
-    public void addItem(String product) {
-        items.add(product);
+    public ShoppingCartModel() {
+        products = new ArrayList<>();
     }
 
-    public List<String> getItems() {
-        return items;
+    public void addProduct(Product product) {
+        products.add(product);
     }
+
+    public void removeProduct(Product product) {
+        products.remove(product);
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
 }
 
 
