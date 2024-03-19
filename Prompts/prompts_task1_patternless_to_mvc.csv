@@ -1,7 +1,7 @@
-﻿Prompt,ChatGPT Explanation
-Step 1: Create Shopping Cart Model Class,"Create a new Java class named ShoppingCartModel.
+﻿Prompt ID,Prompt,ChatGPT Explanation
+I3A,Step 1: Create Shopping Cart Model Class,"Create a new Java class named ShoppingCartModel.
 Move the products list and its related methods (addProduct, removeProduct and getProducts) from the ShoppingCart class to the ShoppingCartModel class."
-Step 2: Create Shopping Cart View Class,"Create a new Java class named ShoppingCartView.
+Q21,Step 2: Create Shopping Cart View Class,"Create a new Java class named ShoppingCartView.
 Move the showProducts method from the ShoppingCart class to the ShoppingCartView class."
-Step 3: Create Shopping Cart Controller Class,"Create a new Java class named ShoppingCartController.
+Z7F,Step 3: Create Shopping Cart Controller Class,"Create a new Java class named ShoppingCartController.
 In its constructor, initialize instances of ShoppingCartModel and ShoppingCartView. Implement methods to add and remove products from the model, and to update the view with the latest data from the model."
