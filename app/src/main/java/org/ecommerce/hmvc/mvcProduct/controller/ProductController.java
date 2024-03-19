@@ -4,15 +4,15 @@ import org.ecommerce.hmvc.mvcProduct.model.ProductModel;
 import org.ecommerce.hmvc.mvcProduct.view.ProductView;
 
 public class ProductController {
-    private ProductModel model;
-    private ProductView view;
+    private ProductModel productModel;
+    private ProductView productView;
 
-    public ProductController(ProductModel model, ProductView view) {
-        this.model = model;
-        this.view = view;
+    public ProductController(ProductModel productModel, ProductView productView) {
+        this.productModel = productModel;
+        this.productView = productView;
     }
 
     public void displayProduct() {
-        view.displayProduct(model);
+        productView.displayProduct(productModel);
     }
 }

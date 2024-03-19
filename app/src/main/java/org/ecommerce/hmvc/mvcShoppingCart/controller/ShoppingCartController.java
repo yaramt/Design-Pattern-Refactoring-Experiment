@@ -4,23 +4,26 @@ import org.ecommerce.hmvc.mvcProduct.model.ProductModel;
 import org.ecommerce.hmvc.mvcShoppingCart.model.ShoppingCartModel;
 import org.ecommerce.hmvc.mvcShoppingCart.view.ShoppingCartView;
 
-import java.util.List;
 
 public class ShoppingCartController {
-    private ShoppingCartModel model;
-    private ShoppingCartView view;
+    private ShoppingCartModel cartModel;
+    private ShoppingCartView cartView;
 
-    public ShoppingCartController(ShoppingCartModel model, ShoppingCartView view) {
-        this.model = model;
-        this.view = view;
+    public ShoppingCartController(ShoppingCartModel cartModel, ShoppingCartView cartView) {
+        this.cartModel = cartModel;
+        this.cartView = cartView;
     }
 
-    public void addProduct(ProductModel product) {
-        model.addProduct(product);
+    public void addProductToCart(ProductModel product) {
+        cartModel.addProduct(product);
     }
 
-    public void showProducts() {
-        List<ProductModel> products = model.getProducts();
-        view.displayCart(products);
+    public void removeProductFromCart(ProductModel product) {
+        cartModel.removeProduct(product);
+    }
+
+    public void updateView() {
+        cartView.displayCart(cartModel.getProducts());
     }
 }
+

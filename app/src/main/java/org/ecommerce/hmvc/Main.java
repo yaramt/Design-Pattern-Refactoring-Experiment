@@ -24,10 +24,10 @@ public class Main {
         ShoppingCartController cartController = new ShoppingCartController(cartModel, cartView);
 
         // Add products to ShoppingCart
-        cartController.addProduct(laptop);
-        cartController.addProduct(headphones);
+        cartController.addProductToCart(laptop);
+        cartController.addProductToCart(headphones);
 
         // Show items in ShoppingCart
-        cartController.showProducts();
+        cartController.updateView();
     }
 }

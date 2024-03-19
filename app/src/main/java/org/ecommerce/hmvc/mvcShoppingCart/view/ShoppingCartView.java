@@ -8,10 +8,10 @@ import java.util.List;
 public class ShoppingCartView {
     private ProductView productView = new ProductView();
 
-    public void displayCart(List<ProductModel> items) {
+    public void displayCart(List<ProductModel> products) {
         System.out.println("Shopping Cart Items:");
-        for (ProductModel item : items) {
-            productView.displayProduct(item);
+        for (ProductModel product : products) {
+            productView.displayProduct(product);
         }
     }
 }
