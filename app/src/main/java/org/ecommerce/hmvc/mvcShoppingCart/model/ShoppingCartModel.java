@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShoppingCartModel {
-    private List<ProductModel> items = new ArrayList<>();
+    private List<ProductModel> products = new ArrayList<>();
 
-    public void addItem(ProductModel product) {
-        items.add(product);
+    public void addProduct(ProductModel product) {
+        products.add(product);
     }
 
-    public List<ProductModel> getItems() {
-        return items;
+    public List<ProductModel> getProducts() {
+        return products;
     }
 }
 

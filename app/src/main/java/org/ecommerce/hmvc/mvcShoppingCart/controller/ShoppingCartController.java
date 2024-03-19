@@ -15,12 +15,12 @@ public class ShoppingCartController {
         this.view = view;
     }
 
-    public void addItem(ProductModel product) {
-        model.addItem(product);
+    public void addProduct(ProductModel product) {
+        model.addProduct(product);
     }
 
-    public void showItems() {
-        List<ProductModel> items = model.getItems();
-        view.displayCart(items);
+    public void showProducts() {
+        List<ProductModel> products = model.getProducts();
+        view.displayCart(products);
     }
 }
