@@ -1,7 +1,7 @@
 ﻿Prompt ID,Prompt,ChatGPT Explanation
-L01,Step 1: Create Product Model Class,Define a class to encapsulate the attributes and methods of a product.
-PA2,Step 2: Create Product View Class,Include a method to display product details.
-Z9A,Step 3: Create Product Controller Class,Define a class that instantiates ProductModel and ProductView. Additionally, include a method responsible for displaying product details, which would call the appropriate method in ProductView.
-E42,Step 4: Refactor ShoppingCartModel to Interact with Product Model Layer,Modify ShoppingCartModel to Use ProductModel.
-B1E,Step 5: Refactor ShoppingCartView to Interact with Product MVC Layer,Modify ShoppingCartView to call ProductView to display product details.
-7ZD,Step 6: Refactor ShoppingCartController to Interact with Product MVC Layer,Modify the ShoppingCartController to use ProductModel.
+L01,Step 1: Create Product Model Class,"Define a class to encapsulate the attributes and methods of a product."
+PA2,Step 2: Create Product View Class,"Include a method to display product details."
+Z9A,Step 3: Create Product Controller Class,"Define a class that instantiates ProductModel and ProductView. Additionally, include a method responsible for displaying product details, which would call the appropriate method in ProductView."
+E42,Step 4: Refactor ShoppingCartModel to Interact with Product Model Layer,"Modify ShoppingCartModel to Use ProductModel."
+B1E,Step 5: Refactor ShoppingCartView to Interact with Product MVC Layer,"Modify ShoppingCartView to call ProductView to display product details."
+7ZD,Step 6: Refactor ShoppingCartController to Interact with Product MVC Layer,"Modify the ShoppingCartController to use ProductModel."
