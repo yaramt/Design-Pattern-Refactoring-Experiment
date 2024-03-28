@@ -1,0 +1,174 @@
+To convert the existing MVC structure into an HMVC structure, we need to introduce a separate MVC structure for the Product entity. Here are the steps to perform this transformation:
+
+### Step 1: Create Product MVC Components
+
+#### Product Model
+Create a new package `org.ecommerce.product.model` and create a class `ProductModel` within it. This class will handle the logic related to the product entity.
+
+```java
+package org.ecommerce.product.model;
+
+public class ProductModel {
+    private int id;
+    private String name;
+    private double price;
+
+    public ProductModel(int id, String name, double price) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
+
+    // Getters and setters for id, name, and price
+}
+```
+
+#### Product View
+Create a new package `org.ecommerce.product.view` and create a class `ProductView` within it. This class will handle the visualization of the product entity.
+
+```java
+package org.ecommerce.product.view;
+
+import org.ecommerce.product.model.ProductModel;
+
+public class ProductView {
+    public void showProduct(ProductModel product) {
+        System.out.println(product.getName() + " - $" + product.getPrice());
+    }
+}
+```
+
+#### Product Controller
+Create a new package `org.ecommerce.product.controller` and create a class `ProductController` within it. This class will act as a bridge between the Product Model and View.
+
+```java
+package org.ecommerce.product.controller;
+
+import org.ecommerce.product.model.ProductModel;
+import org.ecommerce.product.view.ProductView;
+
+public class ProductController {
+    private ProductModel productModel;
+    private ProductView productView;
+
+    public ProductController(ProductModel productModel, ProductView productView) {
+        this.productModel = productModel;
+        this.productView = productView;
+    }
+
+    public void updateView() {
+        productView.showProduct(productModel);
+    }
+}
+```
+
+### Step 2: Modify ShoppingCart Components
+
+Now, we'll modify the existing ShoppingCart components to interact with the Product MVC components.
+
+#### Modify ShoppingCart Model
+In the ShoppingCart Model (`ShoppingCartModel`), replace the list of `Product` objects with a list of `ProductModel` objects.
+
+```java
+package org.ecommerce.mvc.model;
+
+import org.ecommerce.product.model.ProductModel;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ShoppingCartModel {
+    private List<ProductModel> products;
+
+    public ShoppingCartModel() {
+        products = new ArrayList<>();
+    }
+
+    public void addProduct(ProductModel product) {
+        products.add(product);
+    }
+
+    public void removeProduct(ProductModel product) {
+        products.remove(product);
+    }
+
+    public List<ProductModel> getProducts() {
+        return products;
+    }
+}
+```
+
+### Step 3: Modify ShoppingCart Controller
+
+In the ShoppingCart Controller (`ShoppingCartController`), modify methods to accept and work with `ProductModel` objects instead of `Product` objects.
+
+```java
+package org.ecommerce.mvc.controller;
+
+import org.ecommerce.product.model.ProductModel;
+import org.ecommerce.mvc.model.ShoppingCartModel;
+import org.ecommerce.mvc.view.ShoppingCartView;
+
+public class ShoppingCartController {
+    private ShoppingCartModel cartModel;
+    private ShoppingCartView cartView;
+
+    public ShoppingCartController(ShoppingCartModel cartModel, ShoppingCartView cartView) {
+        this.cartModel = cartModel;
+        this.cartView = cartView;
+    }
+
+    public void addProductToCartModel(ProductModel product) {
+        cartModel.addProduct(product);
+    }
+
+    public void removeProductFromCartModel(ProductModel product) {
+        cartModel.removeProduct(product);
+    }
+
+    public void updateView() {
+        cartView.showProducts(cartModel.getProducts());
+    }
+}
+```
+
+### Step 4: Update Main Class
+
+In the `Main` class, create instances of `ProductModel`, `ProductView`, and `ProductController`, and use them to interact with the ShoppingCart.
+
+```java
+package org.ecommerce.mvc;
+
+import org.ecommerce.mvc.controller.ShoppingCartController;
+import org.ecommerce.mvc.model.ShoppingCartModel;
+import org.ecommerce.mvc.view.ShoppingCartView;
+import org.ecommerce.product.controller.ProductController;
+import org.ecommerce.product.model.ProductModel;
+import org.ecommerce.product.view.ProductView;
+
+public class Main {
+    public static void main(String[] args) {
+        ProductModel product1 = new ProductModel(1, "Laptop", 999.99);
+        ProductModel product2 = new ProductModel(2, "Smartphone", 499.99);
+
+        ProductView productView = new ProductView();
+        ProductController productController1 = new ProductController(product1, productView);
+        ProductController productController2 = new ProductController(product2, productView);
+
+        ShoppingCartModel cartModel = new ShoppingCartModel();
+        ShoppingCartView cartView = new ShoppingCartView();
+        ShoppingCartController cartController = new ShoppingCartController(cartModel, cartView);
+
+        cartController.addProductToCartModel(product1);
+        cartController.addProductToCartModel(product2);
+
+        cartController.updateView();
+    }
+}
+```
+
+### Step 5: Run the Application
+
+Compile all classes and run the `Main` class. You should see the products being displayed in the shopping cart.
+
+By following these steps, you've transformed the existing MVC structure into an HMVC structure, where the Product MVC interacts with the ShoppingCart MVC, thus applying the HMVC design pattern.
