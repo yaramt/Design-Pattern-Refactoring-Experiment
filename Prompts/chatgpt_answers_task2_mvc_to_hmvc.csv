@@ -1,4 +1,4 @@
-﻿Prompt ID,Prompt,ChatGPT Explanation
+﻿Prompt ID,ChatGPT Explanation
 L01,Step 1: Create Product MVC Components - Create a class ProductModel. This class will handle the logic related to the product entity.
 PA2,Step 2: Create Product MVC Components - Create a class ProductView. This class will handle the visualization of the product entity.
 Z9A,Step 3: Create Product MVC Components - Create a class ProductController. This class will act as a bridge between the Product Model and View.
