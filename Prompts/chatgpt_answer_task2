@@ -1,4 +1,4 @@
-To convert the existing MVC structure into an HMVC structure, we need to introduce a separate MVC structure for the Product entity. Here are the steps to perform this transformation:
+Certainly! Let's update the steps with the additional functionality of allowing the top-level controller to add products to the shopping cart.
 
 ### Step 1: Create Product MVC Components
 
@@ -100,7 +100,7 @@ public class ShoppingCartModel {
 
 ### Step 3: Modify ShoppingCart Controller
 
-In the ShoppingCart Controller (`ShoppingCartController`), modify methods to accept and work with `ProductModel` objects instead of `Product` objects.
+In the ShoppingCart Controller (`ShoppingCartController`), modify methods to accept and work with `ProductModel` objects instead of `Product` objects. Additionally, add a method to add products to the cart.
 
 ```java
 package org.ecommerce.mvc.controller;
@@ -132,12 +132,13 @@ public class ShoppingCartController {
 }
 ```
 
-### Step 4: Update Main Class
+### Step 4: Introduce Top-Level Controller
 
-In the `Main` class, create instances of `ProductModel`, `ProductView`, and `ProductController`, and use them to interact with the ShoppingCart.
+#### Top-Level Controller
+Create a new package `org.ecommerce.controller` and create a class `AppController` within it. This class will serve as the top-level controller orchestrating communication between the ShoppingCart MVC and the Product MVC.
 
 ```java
-package org.ecommerce.mvc;
+package org.ecommerce.controller;
 
 import org.ecommerce.mvc.controller.ShoppingCartController;
 import org.ecommerce.mvc.model.ShoppingCartModel;
@@ -146,8 +147,11 @@ import org.ecommerce.product.controller.ProductController;
 import org.ecommerce.product.model.ProductModel;
 import org.ecommerce.product.view.ProductView;
 
-public class Main {
-    public static void main(String[] args) {
+public class AppController {
+    private ShoppingCartController cartController;
+
+    public AppController() {
+        // Initialize Product MVC
         ProductModel product1 = new ProductModel(1, "Laptop", 999.99);
         ProductModel product2 = new ProductModel(2, "Smartphone", 499.99);
 
@@ -155,20 +159,47 @@ public class Main {
         ProductController productController1 = new ProductController(product1, productView);
         ProductController productController2 = new ProductController(product2, productView);
 
+        // Initialize ShoppingCart MVC
         ShoppingCartModel cartModel = new ShoppingCartModel();
         ShoppingCartView cartView = new ShoppingCartView();
-        ShoppingCartController cartController = new ShoppingCartController(cartModel, cartView);
+        cartController = new ShoppingCartController(cartModel, cartView);
 
+        // Add products to the shopping cart initially
         cartController.addProductToCartModel(product1);
         cartController.addProductToCartModel(product2);
+    }
 
+    public void displayShoppingCart() {
+        // Update view of shopping cart
         cartController.updateView();
+    }
+
+    public void addProductToCart(ProductModel product) {
+        // Add product to shopping cart
+        cartController.addProductToCartModel(product);
     }
 }
 ```
 
-### Step 5: Run the Application
+### Step 5: Update Main Class
 
-Compile all classes and run the `Main` class. You should see the products being displayed in the shopping cart.
+In the `Main` class, create an instance of `AppController` and use it to display the shopping cart.
 
-By following these steps, you've transformed the existing MVC structure into an HMVC structure, where the Product MVC interacts with the ShoppingCart MVC, thus applying the HMVC design pattern.
+```java
+package org.ecommerce.mvc;
+
+import org.ecommerce.controller.AppController;
+
+public class Main {
+    public static void main(String[] args) {
+        AppController appController = new AppController();
+        appController.displayShoppingCart();
+    }
+}
+```
+
+### Step 6: Run the Application
+
+Compile all classes and run the `Main` class. You should see the products being displayed in the shopping cart as before, and now you can also add products to the shopping cart using the top-level controller.
+
+With these modifications, we have successfully introduced a top-level controller in our HMVC structure, allowing it to handle user input and delegate operations to lower-level controllers or components.
