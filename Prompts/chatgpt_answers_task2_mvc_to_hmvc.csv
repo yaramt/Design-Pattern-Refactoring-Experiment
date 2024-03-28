@@ -4,5 +4,5 @@ PA2,"Step 2: Create Product MVC Components - Create a class ProductView", "This 
 Z9A,"Step 3: Create Product MVC Components - Create a class ProductController", "This class will act as a bridge between the Product Model and View."
 E42,"Step 4: Modify ShoppingCart Components - Modify ShoppingCart Model", "In the ShoppingCart Model, replace the list of Product objects with a list of ProductModel objects."
 B1E,"Step 5: Modify ShoppingCart Components - Modify ShoppingCart Controller", "In the ShoppingCart Controller, modify methods to accept and work with ProductModel objects instead of Product objects."
-7ZD,"Step 6: Introduce Top-Level Controller", "Create a class AppController This class will serve as the top-level controller orchestrating communication between the ShoppingCart MVC and the Product MVC."
+7ZD,"Step 6: Introduce Top-Level Controller", "Create a class AppController. This class will serve as the top-level controller orchestrating communication between the ShoppingCart MVC and the Product MVC."
 4PL,"Step 7: Update Main Class", "In the Main class, create an instance of AppController and use it to display the shopping cart."
