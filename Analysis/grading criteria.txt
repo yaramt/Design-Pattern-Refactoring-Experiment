@@ -1,0 +1,17 @@
+Grade 0:
+
+The participant does not attempt to address the prompt.
+There is no evidence of understanding or effort to follow the instructions.
+The response is entirely incorrect or incomplete.
+
+Grade 1:
+
+The participant partially addresses the prompt but misses key elements or makes significant errors.
+There is some evidence of understanding, but it is incomplete or inaccurate.
+The response may contain some correct information but lacks clarity or coherence.
+
+Grade 2:
+
+The participant fully addresses the prompt with accurate and complete information.
+There is clear evidence of understanding, and the response aligns well with the instructions.
+The response is comprehensive, coherent, and demonstrates proficiency in following the instructions.
