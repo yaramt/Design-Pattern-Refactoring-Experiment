@@ -14,3 +14,6 @@ The experiment involved computer scientists with varying levels of experience. P
 
 - `app/`: Contains patternless, MVC, HMVC source code used in the experiment as a groundtruth.
 - `Prompts/`: Contains answers ChatGPT generated for task 1 and 2.
+- `Data/`: Contains data collected after running the experiment: `Data/demographics_programmingtest.csv` contians answers to demographics and programming test. `Data/data.csv` contains answers to Task 1 and 2.
+
+`
