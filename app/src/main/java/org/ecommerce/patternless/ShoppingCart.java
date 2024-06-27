@@ -15,7 +15,7 @@ public class ShoppingCart {
             System.out.println(product);
         }
     }
-
+//
     public void removeProduct(String product) {
          products.remove(product);
     }
